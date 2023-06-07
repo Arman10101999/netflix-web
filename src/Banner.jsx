@@ -2,26 +2,40 @@ import React, { useEffect, useState } from "react";
 import "./Banner.css";
 import requests from "./Request";
 import instance from "./axios";
-
 import axios from "axios";
+
+
 
 const Banner = () => {
   //fetch the movies from the database and store it in the state and use it from here
-  const [movie, setMoive] = useState([]);
+  const [movie, setMovie] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(instance.fetchTrending);
-      setMoive(
-        request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
-        ]
-      );
-      return request;
+
+      try {
+        const res=await axios.get('https://api.themoviedb.org/3/movie/popular')
+        // console.log(res.data.results)
+        setMovie(res.data.results)
+      } catch (error) {
+        console.log(error)
+      }
+     
+      
+      // setMoive(
+      //   res.data.results[
+      //     Math.floor(Math.random() * res.data.results.length - 1)
+      //   ]
+      // );
+      // return res;
+      // setMovie({
+      //   res
+      // })
+
     }
 
     fetchData();
-  }, [mvovie]);
+  }, []);
 
   console.log(movie);
   //  this functon is for large sentences it cuts it and put ... at the end

@@ -5,15 +5,15 @@ import axios from "axios";
 function Row({ title, fetchUrl, isLargeRow = false }) {
   const [movies, setMovies] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(fetchUrl);
-      setMovies(request.data.results);
-      return request;
-    }
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const request = await axios.get(fetchUrl);
+  //     setMovies(request.data.results);
+  //     return request;
+  //   }
 
-    fetchData();
-  }, [fetchUrl]);
+  //   fetchData();
+  // }, [fetchUrl]);
 
   return (
     <div className="row">

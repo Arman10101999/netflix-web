@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./Banner.css";
 import requests from "./Request";
 import instance from "./axios";
-
 import axios from "axios";
 
 const Banner = () => {
   //fetch the movies from the database and store it in the state and use it from here
-  const [movie, setMoive] = useState([]);
+  const [movie, setMovie] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -17,7 +16,6 @@ const Banner = () => {
           Math.floor(Math.random() * request.data.results.length - 1)
         ]
       );
-      console.log(request.data.results);
       return request;
     }
 

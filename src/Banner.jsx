@@ -17,11 +17,12 @@ const Banner = () => {
           Math.floor(Math.random() * request.data.results.length - 1)
         ]
       );
+      console.log(request.data.results);
       return request;
     }
 
     fetchData();
-  }, [mvovie]);
+  }, []);
 
   console.log(movie);
   //  this functon is for large sentences it cuts it and put ... at the end
